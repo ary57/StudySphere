@@ -1,4 +1,4 @@
-package com.example.studysphere.ui.dashboard
+package com.example.studysphere.ui.notes
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import com.example.studysphere.databinding.FragmentDashboardBinding
+import com.example.studysphere.databinding.FragmentNotesBinding
 
-class DashboardFragment : Fragment() {
+class NotesFragment : Fragment() {
 
-    private var _binding: FragmentDashboardBinding? = null
+    private var _binding: FragmentNotesBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -22,14 +22,14 @@ class DashboardFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+        val notesViewModel =
+            ViewModelProvider(this).get(NotesViewModel::class.java)
 
-        _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+        _binding = FragmentNotesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         val textView: TextView = binding.textDashboard
-        dashboardViewModel.text.observe(viewLifecycleOwner) {
+        notesViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
         return root
